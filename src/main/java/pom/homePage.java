@@ -6,6 +6,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import java.io.IOException;
+
 public class homePage extends baseClass {
 
     public static WebDriver driver;
@@ -79,13 +81,14 @@ public class homePage extends baseClass {
         jsClick(destLocation);
 
     }
-    public void Date() throws InterruptedException {
+    public void Date() throws InterruptedException, IOException {
 
         jsClick(travelDate);
         Thread.sleep(2000);
         jsScroll(200);
         Thread.sleep(1000);
         Click(date);
+        Screenshots("1");
         Thread.sleep(2000);
 
     }

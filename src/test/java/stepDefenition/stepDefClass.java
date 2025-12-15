@@ -7,6 +7,7 @@ import pom.homePage;
 import pom.passengerDetails;
 
 import java.awt.*;
+import java.io.IOException;
 
 public class stepDefClass extends baseClass {
 
@@ -34,14 +35,12 @@ public class stepDefClass extends baseClass {
         hp.Destinaton(string);
     }
     @Then("select Date")
-    public void select_date() throws InterruptedException {
+    public void select_date() throws InterruptedException, IOException {
         hp.Date();
-
     }
     @Then("Click Search Button")
     public void click_search_button() throws InterruptedException {
         hp.Search();
-
     }
     @Then("Select any seat")
     public void select_any_seat() throws InterruptedException {
@@ -60,7 +59,7 @@ public class stepDefClass extends baseClass {
     }
 
     @Then("Filter the details based on our needs {string} {string}")
-    public void filterTheDetailsBasedOnOurNeeds(String arg0, String arg1) throws InterruptedException, AWTException {
+    public void filterTheDetailsBasedOnOurNeeds(String arg0, String arg1) throws InterruptedException, AWTException, IOException {
         fp.filterDetails(arg0,arg1);
     }
 

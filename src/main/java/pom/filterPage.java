@@ -8,6 +8,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import java.awt.*;
+import java.io.IOException;
 import java.util.List;
 import java.util.Random;
 
@@ -77,7 +78,7 @@ public class filterPage extends baseClass {
     @FindBy(xpath = "(//div[@class='PickUpDropSelection_pickDropContainer__VSr2j'])[2]")
     WebElement DropScroll;
 
-    public void filterDetails(String text, String txt) throws InterruptedException, AWTException {
+    public void filterDetails(String text, String txt) throws InterruptedException, AWTException, IOException {
         Thread.sleep(1000);
         Click(acCoach);
         Thread.sleep(1000);
@@ -94,6 +95,7 @@ public class filterPage extends baseClass {
         keyPress();
         keyPress();
         keyRelease();
+        Screenshots("2");
         Thread.sleep(3000);
         Click(price);
 

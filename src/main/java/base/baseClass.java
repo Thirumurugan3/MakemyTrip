@@ -1,14 +1,14 @@
 package base;
 
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
 
 import java.awt.*;
 import java.awt.event.KeyEvent;
+import java.io.File;
+import java.io.IOException;
 import java.time.Duration;
 
 public class baseClass {
@@ -69,6 +69,12 @@ public class baseClass {
     public static void elementScroll(WebElement element,int height){
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("arguments[0].scrollTop = arguments[0].scrollTop+"+height+";", element);
+    }
+    public static void Screenshots(String name) throws IOException {
+        TakesScreenshot ts=(TakesScreenshot) driver;
+        File screenshotAs = ts.getScreenshotAs(OutputType.FILE);
+        File path= new File("target/Screenshots/"+name+".jpg");
+        FileUtils.copyFile(screenshotAs,path);
     }
 
 }

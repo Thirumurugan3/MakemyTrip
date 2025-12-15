@@ -24,6 +24,6 @@ public class runnerClass extends baseClass {
 
     @AfterClass
     public static void End(){
-//        driver.quit();
+        driver.quit();
     }
 }
