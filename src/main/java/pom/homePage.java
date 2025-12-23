@@ -1,12 +1,15 @@
 package pom;
 
 import base.baseClass;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import java.io.IOException;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 public class homePage extends baseClass {
 
@@ -41,14 +44,20 @@ public class homePage extends baseClass {
     @FindBy(xpath = "//span[@class='sr_city blackText']")
     WebElement destLocation;
 
-    @FindBy(xpath = "(//div[@role='gridcell'])[30]")
+    @FindBy(xpath = "//div[@class='DayPicker-wrapper']")
     WebElement date;
+
+    public WebElement date(int datee){
+        return driver.findElement(By.xpath("(//div[@role='gridcell'])["+datee+"]"));
+    }
 
     @FindBy(id = "travelDate")
     WebElement travelDate;
 
     @FindBy(xpath = "//button[@data-cy='submit']")
     WebElement searchButton;
+
+
 
 
 
@@ -81,15 +90,23 @@ public class homePage extends baseClass {
         jsClick(destLocation);
 
     }
+
+
+
     public void Date() throws InterruptedException, IOException {
 
         jsClick(travelDate);
+        int finaldat=0;
+        String getDate = driver.findElement(By.xpath("//div[@class='DayPicker-Day DayPicker-Day--selected']")).getText();
+        int selectdate=Integer.parseInt(getDate);
+        finaldat=selectdate+2;
+
         Thread.sleep(2000);
         jsScroll(200);
         Thread.sleep(1000);
-        Click(date);
-        Screenshots("1");
+        Click(date(finaldat));
         Thread.sleep(2000);
+
 
     }
     public void Search() throws InterruptedException {
