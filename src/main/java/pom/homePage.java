@@ -107,7 +107,6 @@ public class homePage extends baseClass {
         Click(date(finaldat));
         Thread.sleep(2000);
 
-
     }
     public void Search() throws InterruptedException {
         Click(searchButton);
